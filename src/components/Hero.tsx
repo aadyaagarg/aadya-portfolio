@@ -1,6 +1,7 @@
 import { FaJava } from "react-icons/fa";
 import { SiSpringboot, SiPostgresql } from "react-icons/si";
 import { PORTFOLIO } from "../data/constants";
+import profileImage from "../assets/profile.jpg";
 export function Hero() {
   return (
     <section
@@ -53,7 +54,7 @@ export function Hero() {
         <div className="relative w-80 h-80 rounded-full bg-gray-900 flex items-center justify-center">
           <div className="w-64 h-64 rounded-full overflow-hidden ">
             <img
-              src="src\assests\profile.jpg"
+              src={profileImage}
               alt="Aadya Garg"
               className="w-full h-full object-cover "
             />
