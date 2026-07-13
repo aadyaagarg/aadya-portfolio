@@ -1,5 +1,7 @@
-import { GitFork, Link as LinkedinIcon, Mail, Menu, X } from "lucide-react";
+import { Link as LinkedinIcon, Mail, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { FaGithub } from "react-icons/fa";
+import { PORTFOLIO } from "../data/constants";
 
 const NAV_LINKS = ["Home", "Portfolio", "Services", "About", "Contact"];
 
@@ -12,14 +14,15 @@ export function Navbar() {
           href="#home"
           className=" flex items-center gap-2 font-mono text-lg font-bold text-white"
         >
-          <span className="font-mono text-teal-400">&lt;A/&gt;</span>Aadya Garg
+          <span className="font-mono text-teal-400">&lt;A/&gt;</span>
+          {PORTFOLIO.name}
         </a>
         <nav className="hidden items-center gap-8 lg:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link}
               href={`#${link.toLowerCase()}`}
-              className={`font-mono text-sm transition-colors hover:font-bold ${
+              className={`font-mono text-sm transition-all duration-300 hover:font-bold ${
                 link === "Home"
                   ? "text-teal-400 hover:text-white"
                   : "text-gray-400 hover:text-white"
@@ -31,22 +34,26 @@ export function Navbar() {
         </nav>
         <div className="hidden items-center lg:flex gap-6">
           <a
-            href="#"
-            className="flex items-center gap-2 font-mono text-sm text-gray-400 transition-colors hover:text-teal-400"
+            href={PORTFOLIO.links.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 font-mono text-sm text-gray-400 transition-all duration-300 hover:-translate-y-0.5 hover:text-teal-400"
           >
             <LinkedinIcon size={16} />
             LinkedIn
           </a>
           <a
-            href="#"
-            className="flex items-center gap-2 font-mono text-sm text-gray-400 transition-colors hover:text-teal-400"
+            href={PORTFOLIO.links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 font-mono text-sm text-gray-400 transition-all duration-300 hover:-translate-y-0.5 hover:text-teal-400"
           >
-            <GitFork size={16} />
+            <FaGithub size={16} />
             Github
           </a>
           <a
             href="#contact"
-            className="h-10 w-10 flex justify-center items-center border rounded-full border-teal-400 text-teal-400 bg-teal-400/10 transition-colors hover:bg-teal-400 hover:text-gray-950"
+            className="h-10 w-10 flex justify-center items-center border rounded-full border-teal-400 text-teal-400 bg-teal-400/10 transition-all duration-300 hover:bg-teal-400 hover:text-gray-950"
           >
             <Mail size={18} />
           </a>
@@ -67,7 +74,7 @@ export function Navbar() {
               key={link}
               href={`#${link.toLowerCase()}`}
               onClick={() => setMenuOpen(false)}
-              className={`font-mono text-sm transition-colors hover:font-bold ${
+              className={`font-mono text-sm transition-all duration-300 hover:font-bold ${
                 link === "Home"
                   ? "text-teal-400 hover:text-white"
                   : "text-gray-400 hover:text-white"
@@ -78,20 +85,20 @@ export function Navbar() {
           ))}
           <div className="flex items-center gap-5 border-t border-gray-800 pt-4">
             <a
-              href="#"
-              className="text-gray-400 transition-colors hover:text-teal-400"
+              href={PORTFOLIO.links.linkedin}
+              className="text-gray-400 transition-all duration-300 hover:text-teal-400"
             >
               <LinkedinIcon size={20} />
             </a>
             <a
-              href="#"
-              className="text-gray-400 transition-colors hover:text-teal-400"
+              href={PORTFOLIO.links.github}
+              className="text-gray-400 transition-all duration-300 hover:text-teal-400"
             >
-              <GitFork size={20} />
+              <FaGithub size={20} />
             </a>
             <a
               href="#contact"
-              className="text-teal-400 transition-colors hover:text-teal-300"
+              className="text-teal-400 transition-all duration-300 hover:text-teal-300"
             >
               <Mail size={20} />
             </a>
